@@ -1,6 +1,6 @@
 # Machine Learning on Graphs
 
-This course is taught at the Azrieli College of Engineering in Jerusalem, Israel.
+This course introduces students to the fundamentals and advanced concepts of machine learning on graph-structured data. It is taught at the Azrieli College of Engineering in Jerusalem, Israel, and covers both theoretical foundations and practical applications. The course equips students with the knowledge and skills needed to work with graph neural networks, network analysis, and graph-based machine learning algorithms.
 
 ## Authors
 
