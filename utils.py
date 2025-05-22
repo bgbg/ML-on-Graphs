@@ -17,7 +17,7 @@ else:
 def download_and_extract_data(
     *,
     zip_url,
-    zip_filename,
+    zip_filename=None,
     filetype: Literal["zip", "csv.gz"],
     local_folder="./data",
     in_colab=IN_COLAB,
