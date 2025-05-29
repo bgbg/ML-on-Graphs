@@ -4,6 +4,7 @@ from typing import Literal
 import urllib.request
 import zipfile
 import gzip
+import networkx as nx
 
 try:
     import google.colab
@@ -78,3 +79,27 @@ def download_and_extract_data(
         return extract_file
     else:
         raise ValueError(f"Unsupported file type: {filetype}")
+
+
+def get_giant_component(G: nx.Graph) -> nx.Graph:
+    """
+    Get the giant component of a graph.
+    """
+    return G.subgraph(max(nx.connected_components(G), key=len))
+
+
+def print_graph_info(G: nx.Graph):
+    """
+    Print information about a graph.
+    """
+    is_directed = G.is_directed()
+    is_weighted = nx.is_weighted(G)
+    is_connected = nx.is_connected(G)
+    str_directed = "directed" if is_directed else "undirected"
+    str_weighted = "weighted" if is_weighted else "unweighted"
+    str_connected = "connected" if is_connected else "disconnected"
+    print(f"Graph is {str_directed} and {str_weighted}.")
+    print(f"Graph is {str_connected}.")
+    print(f"Number of nodes:\t{G.number_of_nodes():7,d}")
+    print(f"Number of edges:\t{G.number_of_edges():7,d}")
+    print(f"Density:\t\t{nx.density(G):.3f}")
