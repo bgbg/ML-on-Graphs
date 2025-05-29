@@ -1,0 +1,11 @@
+black
+black[jupyter]
+jupyter
+matplotlib
+networkx
+numpy
+pandas
+torch
+torch_geometric
+scikit-learn
+seaborn
