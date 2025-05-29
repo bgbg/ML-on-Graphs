@@ -4,10 +4,11 @@ import os
 import torch
 import random
 from collections import deque
-from torch_geometric.datasets import CoraFull
+from torch_geometric.datasets import Planetoid
 from torch_geometric.utils import subgraph, to_networkx
 from torch_geometric.data import Data
 import networkx as nx
+import utils
 
 
 def get_neighbors_within_radius(
@@ -29,7 +30,7 @@ def get_neighbors_within_radius(
 
 
 def download_sample(initial_sample=10, radius=3, out_name="cora_graph_subset.graphml"):
-    dataset = CoraFull(root="/tmp/CoraFull")
+    dataset = Planetoid(root="/tmp/Cora", name="Cora")
     data = dataset[0]
     num_nodes = data.num_nodes
     edge_index = data.edge_index
@@ -52,6 +53,7 @@ def download_sample(initial_sample=10, radius=3, out_name="cora_graph_subset.gra
     sub_data = Data(x=sub_x, edge_index=sub_edge_index, y=sub_y)
 
     nx_graph = to_networkx(sub_data, to_undirected=True, node_attrs=["y"])
+    utils.print_graph_info(nx_graph)
 
     dir_out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
     os.makedirs(dir_out, exist_ok=True)
@@ -62,10 +64,11 @@ def download_sample(initial_sample=10, radius=3, out_name="cora_graph_subset.gra
 
 
 def download_full(out_name="cora_graph_full.graphml"):
-    dataset = CoraFull(root="/tmp/CoraFull")
+    dataset = Planetoid(root="/tmp/Cora", name="Cora")
     data = dataset[0]
 
     nx_graph = to_networkx(data, to_undirected=True, node_attrs=["y"])
+    utils.print_graph_info(nx_graph)
 
     dir_out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
     os.makedirs(dir_out, exist_ok=True)
