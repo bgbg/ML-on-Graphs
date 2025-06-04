@@ -5,6 +5,8 @@ import urllib.request
 import zipfile
 import gzip
 import networkx as nx
+import matplotlib.pyplot as plt
+import numpy as np
 
 try:
     import google.colab
@@ -94,12 +96,43 @@ def print_graph_info(G: nx.Graph):
     """
     is_directed = G.is_directed()
     is_weighted = nx.is_weighted(G)
-    is_connected = nx.is_connected(G)
     str_directed = "directed" if is_directed else "undirected"
     str_weighted = "weighted" if is_weighted else "unweighted"
-    str_connected = "connected" if is_connected else "disconnected"
+
     print(f"Graph is {str_directed} and {str_weighted}.")
-    print(f"Graph is {str_connected}.")
+    if not is_directed:
+        is_connected = nx.is_connected(G)
+        str_connected = "connected" if is_connected else "disconnected"
+        print(f"Graph is {str_connected}.")
     print(f"Number of nodes:\t{G.number_of_nodes():7,d}")
     print(f"Number of edges:\t{G.number_of_edges():7,d}")
     print(f"Density:\t\t{nx.density(G):.3f}")
+
+
+def log_log_plot(
+    data,
+    normalize=False,
+    str_xlabel="Degree",
+    str_ylabel="Count",
+    str_title="Log-Log Degree Distribution",
+    ax=None,
+):
+    if ax is None:
+        ax = plt.gca()
+    counts = np.bincount(data)
+    x = np.nonzero(counts)[0]
+    y = counts[x]
+    if normalize:
+        y = y / len(data)
+    ax.loglog(x, y, "ok", linestyle="None")
+    if normalize:
+        ax.set_ylabel("Fraction")
+    else:
+        ax.set_ylabel("Count")
+    if str_xlabel is not None:
+        ax.set_xlabel(str_xlabel)
+    if str_ylabel is not None:
+        ax.set_ylabel(str_ylabel)
+    if str_title is not None:
+        ax.set_title(str_title)
+    return ax
