@@ -3,6 +3,7 @@ black[jupyter]
 jupyter
 matplotlib
 networkx>=3.5
+node2vec
 numpy
 pandas
 torch
