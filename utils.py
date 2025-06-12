@@ -87,7 +87,12 @@ def get_giant_component(G: nx.Graph) -> nx.Graph:
     """
     Get the giant component of a graph.
     """
-    return G.subgraph(max(nx.connected_components(G), key=len))
+    return G.subgraph(
+        max(
+            nx.connected_components(G),
+            key=len,
+        )
+    )
 
 
 def print_graph_info(G: nx.Graph):
