@@ -40,6 +40,8 @@ paginate: true
 
 # Erdos-Renyi Model
 
+> **Main intuition:** "Everybody has roughly the same chance to connect to everybody else."
+
 ---
 
 ## Erdos-Renyi Model – Definition
@@ -79,6 +81,24 @@ G = nx.erdos_renyi_graph(n=100, p=0.05)
 
 ---
 
+## When Does ER Fit? – Real-Life-ish Examples
+Best approximation when edges form roughly **independently** and **uniformly at random**.
+
+| Example | Why it can fit |
+| --- | --- |
+| Random assignment of students to project groups | Pairs equally likely to end up together |
+| Randomized clinical trial contact networks | Participants randomly assigned to groups |
+| Synthetic benchmark networks | Null model: "what if there were no structure?" |
+| Some infrastructure failure graphs | Failures/links independent and sparse |
+| Gene/protein interaction null models | ER as a useful baseline, not because biology is random |
+
+---
+
+## ER – When It Fails
+**Usually bad for** social networks, citation networks, web graphs, collaboration networks, and biological networks — these have clustering, hubs, communities, or heavy-tailed degree distributions.
+
+---
+
 ### Erdos-Renyi Model – Real-Life Examples
 - **Random gene regulatory networks under specific constraints**
 - **Neural connectivity in simple organisms (e.g., C. elegans)**
@@ -96,6 +116,8 @@ G = nx.erdos_renyi_graph(n=100, p=0.05)
 ---
 
 # Watts-Strogatz Model
+
+> **Main intuition:** "Most connections are local, but a few shortcuts make the world small."
 
 ---
 
@@ -156,6 +178,21 @@ G = nx.watts_strogatz_graph(n=100, k=4, p=0.1)
 
 ---
 
+## When Does Watts–Strogatz Fit? – Real-Life Examples
+Best approximation for networks with **high clustering** and **short average path lengths**.
+
+| Example | Why it can fit |
+| --- | --- |
+| Friendship networks in small communities | Friends know each other; few long-range links bridge groups |
+| Scientific collaboration networks | Local collaboration within fields; cross-field links shorten paths |
+| Actor co-appearance networks | Clusters by genre/country, with bridging actors |
+| Neural / simplified brain connectivity | Local clustering plus some long-distance connections |
+| Power grids | Mostly local links with some long-distance transmission |
+| Organizational communication networks | Dense teams; managers/connectors create shortcuts |
+| Social media follower networks (partial) | Better than ER for clustering, but misses hubs |
+
+---
+
 ### Watts-Strogatz Model – Real-Life Examples
 - **Power grid networks**
 - **Neural networks in mammals**
@@ -173,6 +210,8 @@ G = nx.watts_strogatz_graph(n=100, k=4, p=0.1)
 ---
 
 # Scale-Free Networks
+
+> **Main intuition:** "A few hubs hold the whole network together; most nodes have very few links."
 
 ---
 
@@ -215,6 +254,8 @@ G = nx.watts_strogatz_graph(n=100, k=4, p=0.1)
 ---
 
 # Barabasi-Albert Model
+
+> **Main intuition:** "The rich get richer — new nodes prefer to attach to already-popular nodes."
 
 ---
 
