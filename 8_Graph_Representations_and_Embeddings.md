@@ -390,10 +390,14 @@ for _ in range(10):
 </div>
 <div>
 
-Just stepped **t → v**. Each candidate gets an *unnormalised weight*:
-- back to **t**: **1/p**
-- to a neighbour of t (stays close): **1**
-- to a farther node: **1/q**
+Just stepped **t → v**. Each candidate's *unnormalised weight* depends only on its
+**distance from `t`** (where we just came from):
+- **d = 0** — back to **t** → **1/p**
+- **d = 1** — **x1**, a neighbour of *t* too → **1** (stay equally close)
+- **d = 2** — **x2, x3**, farther out → **1/q**
+
+Every move is a **real edge out of `v`** — *nothing teleports*. `x1` differs from `x2`/`x3`
+only because it is a **shared** neighbour of `t` and `v`.
 
 </div>
 </div>
