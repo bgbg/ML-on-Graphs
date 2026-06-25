@@ -1,10 +1,20 @@
 # Notebook Cleanup & Improvement Playbook
 
 Reusable instructions for bringing any chapter notebook in this project up to the
-standard set by `6_Community_Detection.ipynb` and
+standard set by `1_Introduction_to_Graphs_and_Networks.ipynb`,
+`6_Community_Detection.ipynb`, and
 `7_Introduction_to_Machine_Learning_on_Graphs.ipynb`. Hand this file to the
 assistant together with the target notebook (e.g. *"Apply
-`tmp_notebook_cleanup_instruction.md` to `8_Graph_Representations_and_Embeddings.ipynb`"*).
+`notebook_cleanup_instruction.md` to `2_Basic_Network_Properties.ipynb`"*).
+
+**Run one notebook per clean chat, in reading order — not batched into one
+conversation, and not concurrently.** Do the remaining chapters in sequence (2 → 3 →
+4 → 5, then 9 → … → 15) so each can cross-reference the ones already cleaned. A single
+chat can't hold the whole book at quality, and verification shares one kernel — so a
+fresh chat per chapter is the workflow. Open each chat by pointing at the
+already-cleaned neighbours as the reference (e.g. chapters 1, 6, 7), and commit each
+chapter once its checklist is green (a clear message like `Restructure Chapter N …`)
+to match the existing git history.
 
 ---
 
@@ -23,6 +33,9 @@ anything:
     if l.lstrip().startswith('#') and not l.lstrip().startswith('#!')]"
    done
    ```
+   Exclude `*BACKUP*` and `*_exec*` copies from this glob (there's a stray
+   `9_..._BACKUP.ipynb`) — they pollute the heading skim and you can end up editing the
+   wrong file. Resolve any backup or executed copy before touching that chapter.
 2. **Respect the running order.** Do not teach a concept this chapter is supposed to
    *receive* from an earlier one, and do not duplicate something a later chapter
    owns. If the target is "Intro to GNNs", a GCN should be *motivated* here but
@@ -40,7 +53,9 @@ anything:
 
 ## 1. Target structure (what "good" looks like)
 
-Use `6_Community_Detection.ipynb` and `7_*.ipynb` as the gold standard.
+Use `1_Introduction_to_Graphs_and_Networks.ipynb`, `6_Community_Detection.ipynb`,
+and `7_*.ipynb` as the gold standard — plus any later chapter already brought to this
+standard. (Skip chapters still under active development as references.)
 
 - **One H1 title:** `# Chapter N — <Title>`, followed by a short intro that states
   the chapter's **spine** — the single through-line question the chapter answers.
@@ -63,10 +78,26 @@ Use `6_Community_Detection.ipynb` and `7_*.ipynb` as the gold standard.
   - **At least one should be meatier (up to ~10 min):** combine two ideas from the
     section, write a short helper, or interpret a result and justify it in a
     sentence. Pose it as a small open-ended question, not a fill-in-the-blank.
-  - Give each one a **starter cell** (a scaffold with a `# TODO` and any setup), and
-    where useful a one-line hint or expected-shape-of-answer. Keep the *solution*
-    out of the notebook (or fold it into the following narrative) so the exercise
-    stays live.
+  - Give each one a **starter cell that executes cleanly as shipped** but leaves the
+    real work undone:
+    - The `# TODO` **states the task in words** — *never* the commented-out solution.
+      A `# TODO: <exact code>` a student only un-comments is not an exercise. Provide
+      the setup line(s) and a one-line hint or the expected shape of the answer.
+    - **Trivial** exercises end there — the answer is short enough to just do.
+    - **Meaty** exercises additionally get a **collapsible solution** in the *next*
+      markdown cell, so self-study readers can check themselves without it being in
+      their face (renders collapsed in Jupyter/VS Code/nbviewer/GitHub):
+
+      ````markdown
+      <details><summary>Solution</summary>
+
+      ```python
+      ...solution code...
+      ```
+
+      One sentence interpreting the result.
+      </details>
+      ````
 - **Close with `## Summary`** (bullets tying the arc together) and a
   **`## Chapter N — <Title> · Homework`** with `### Part A/B/C` (each part graded on
   a sentence or two of interpretation). **If the notebook has no homework, add one** —
@@ -113,6 +144,11 @@ Use `6_Community_Detection.ipynb` and `7_*.ipynb` as the gold standard.
   baseline.
 - **Comment density** should match the surrounding code and the reference notebooks
   (brief, purposeful `#` notes).
+- **Generated assets, only when they earn their place.** If a chapter genuinely needs
+  a hand-made diagram or a synthetic dataset, keep the generator in the repo (a small
+  committed `<nb>_*.py` script) writing to `figures/` or a data dir, referenced by
+  relative path — reproducible, not an orphaned binary. Don't add a generator for its
+  own sake; reach for one only when an existing figure or dataset won't do the job.
 
 ## 5. Verification (do NOT skip)
 
@@ -147,7 +183,8 @@ A chapter is not done until it **executes top-to-bottom with no errors**.
    nb["metadata"]["kernelspec"] = {"display_name": "sna", "language": "python", "name": "python3"}
    ```
 4. **Validate JSON:** `import nbformat; nbformat.validate(nb)` before writing.
-5. Keep a backup of the pre-edit notebook (e.g. `/tmp/<nb>_backup.ipynb`).
+5. **Git is the safety net** — make sure the chapter's pre-edit state is committed (or
+   stashed) before editing, so you can `git diff` and revert. No separate file copy.
 
 ## 6. Mechanics & gotchas (how to edit safely)
 
@@ -175,8 +212,12 @@ A chapter is not done until it **executes top-to-bottom with no errors**.
 - [ ] Numbered sections, clear spine, toy+real balance, Summary + Homework.
 - [ ] Several trivial (1–4 min) "Your turn" exercises plus one meatier (~10 min) one;
       homework present (added if it was missing).
+- [ ] "Your turn" starters **describe** the task (no commented-out solution); trivial
+      ones are runnable scaffolds, meaty ones have a collapsible `<details>` solution.
 - [ ] Boilerplate, stale names, and jumbled order removed.
 - [ ] Prose is intuition-first, honest, and cites real numbers.
 - [ ] Executes top-to-bottom in a capable kernel with zero errors; figures render.
-- [ ] Prose numbers match executed outputs; JSON validates; backup kept.
+- [ ] Prose numbers match executed outputs; JSON validates.
+- [ ] Pre-edit state was in git; chapter committed with a clear message
+      (e.g. `Restructure Chapter N …`).
 - [ ] Intro points back to the previous chapter; ending points forward to the next.
