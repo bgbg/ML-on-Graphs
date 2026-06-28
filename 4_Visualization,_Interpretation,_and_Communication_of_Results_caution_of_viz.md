@@ -49,7 +49,7 @@ two months before Bush vs. Kerry.
 
 ---
 
-![bg fit](caution_of_viz_assets/divided-they-blog.png)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/divided-they-blog.png)
 
 ---
 
@@ -69,7 +69,7 @@ The figure was just an illustration of methodology.
 
 ---
 
-![bg right:40% fit](caution_of_viz_assets/adamic_fig_1.png)
+![bg right:40% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/adamic_fig_1.png)
 
 ## Yet other authors used it as proof
 
@@ -97,11 +97,11 @@ Christakis & Fowler — the book that turned
 
 ---
 
-![bg fit](caution_of_viz_assets/danish-socket.jpg)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/danish-socket.jpg)
 
 ---
 
-![bg fit](caution_of_viz_assets/martian-face.jpg)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/martian-face.jpg)
 
 ---
 
@@ -122,7 +122,7 @@ In networks, this is our default mode.
 
 ---
 
-![bg fit](caution_of_viz_assets/ridiculogram.png)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/ridiculogram.png)
 
 ---
 
@@ -134,7 +134,7 @@ The map is not the territory.
 
 ---
 
-![bg fit](caution_of_viz_assets/blurred-blogs.png)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/blurred-blogs.png)
 
 ---
 
@@ -169,7 +169,7 @@ Bipartite, tripartite, hierarchical patterns? *Invisible.*
 
 ---
 
-![bg fit](caution_of_viz_assets/bipartite-blind.svg)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/bipartite-blind.svg)
 
 ---
 
@@ -214,7 +214,7 @@ The visualization is the manipulation.
 
 ---
 
-![bg right:45% fit](caution_of_viz_assets/adamic_fig_1.png)
+![bg right:45% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/adamic_fig_1.png)
 
 ## The famous 91% / 9%
 
@@ -225,7 +225,7 @@ The visualization is the manipulation.
 
 ---
 
-![bg right:45% fit](caution_of_viz_assets/adamic_fig_1.png)
+![bg right:45% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/adamic_fig_1.png)
 
 ## 9% sounds tiny.
 
@@ -235,7 +235,7 @@ The cross-talk is **10× richer** than the math expected.
 
 ---
 
-![bg right:45% fit](caution_of_viz_assets/adamic_fig_1.png)
+![bg right:45% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/adamic_fig_1.png)
 
 ## Modularity ≈ 0.4
 
@@ -279,7 +279,7 @@ Run statistical inference → constrain the picture to it
 
 ---
 
-![bg right:55% fit](caution_of_viz_assets/blogs-2color.png)
+![bg right:55% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/blogs-2color.png)
 
 ### Step 1
 
@@ -289,7 +289,7 @@ What the standard layout reveals.
 
 ---
 
-![bg right:55% fit](caution_of_viz_assets/blogs-inferred.png)
+![bg right:55% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/blogs-inferred.png)
 
 ### Step 2
 
@@ -300,7 +300,7 @@ A force-directed layout obscures them.
 
 ---
 
-![bg right:55% fit](caution_of_viz_assets/blogs-enforced.png)
+![bg right:55% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/blogs-enforced.png)
 
 ### Step 3
 
@@ -310,7 +310,7 @@ Now the inferred structure is visible.
 
 ---
 
-![bg fit](caution_of_viz_assets/chordal.png)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/chordal.png)
 
 ---
 
@@ -322,7 +322,7 @@ No more hairball.
 
 ---
 
-![bg fit](caution_of_viz_assets/foodweb.svg)
+![bg fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/foodweb.svg)
 
 ---
 
@@ -360,7 +360,7 @@ Different choices, different stories.
 
 ---
 
-![bg right:45% fit](caution_of_viz_assets/adamic_fig_1.png)
+![bg right:45% fit](4_Visualization,_Interpretation,_and_Communication_of_Results_caution_of_viz_assets/adamic_fig_1.png)
 
 ## The seductive futility
 
